@@ -7,17 +7,16 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-service
+  name: grafana
   namespace: monitoring
 spec:
   type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3000
+      nodePort: 32000
   selector:
     app: grafana
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
-      nodePort: 30012  
 
 ---
 apiVersion: apps/v1
@@ -43,3 +42,4 @@ spec:
         env:
         - name: GF_SECURITY_ADMIN_PASSWORD
           value: "admin"  # esta es el password
+
