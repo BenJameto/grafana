@@ -42,4 +42,11 @@ spec:
         env:
         - name: GF_SECURITY_ADMIN_PASSWORD
           value: "admin"  # esta es el password
+        resources:
+          requests:
+            memory: "256Mi"  # Memoria solicitada
+            cpu: "250m"      # CPU solicitada
+          limits:
+            memory: "512Mi"  # Límite de memoria
+            cpu: "500m"      # Límite de CPU
 
